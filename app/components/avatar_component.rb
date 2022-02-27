@@ -30,6 +30,7 @@ class AvatarComponent < ApplicationComponent
   def initialize(user:, size: :small, shape: :circle, **options)
     @user = user
     @size = size
+    @shape = shape
 
     @options = options
     @options[:tag] = :a
@@ -46,7 +47,7 @@ class AvatarComponent < ApplicationComponent
   def call
     if src
       render ApplicationComponent.new(**@options) do
-        content_tag :div, class: SIZE_MAP[@size] do
+        content_tag :div, class: "#{SHAPE_MAP[@shape]} #{SIZE_MAP[@size]}" do
           image_tag src
         end
       end

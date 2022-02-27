@@ -11,7 +11,8 @@
       %h1.text-text-left
         = link_to @facility.name, root_path
       .flex.gap-x-6.items-center.justify-end
-        = render AvatarComponent.new(user: current_user, size: :medium, id: 'user-edit')
+        = turbo_stream_from current_user
+        = render current_user
         = link_to destroy_user_session_path, data: { "turbo-method": :delete } do
           = render IconComponent.new(icon: 'right-from-bracket', id: 'logout')
     %main

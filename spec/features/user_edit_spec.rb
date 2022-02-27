@@ -8,7 +8,7 @@ RSpec.describe 'User Edit Form', type: :feature do
 
   it 'renders the edit form' do
     visit root_path
-    find('#user-edit').click
+    find('#user_1').click
     expect(page).to have_text('Edit User')
   end
 
@@ -19,7 +19,7 @@ RSpec.describe 'User Edit Form', type: :feature do
     new_avatar_url = Faker::Avatar.image
 
     visit root_path
-    find('#user-edit').click
+    find('#user_1').click
     fill_in 'user_email', with: new_email
     fill_in 'user_first_name', with: new_first_name
     fill_in 'user_last_name', with: new_last_name

@@ -5,9 +5,10 @@ class UsersController < AuthenticatedBaseController
 
   def update
     if @user.update(user_params)
-      redirect_to '/', notice: 'Successfully updated!'
+      flash[:success] = 'Successfully updated!'
+      render_flash
     else
-      render :edit
+      render turbo_stream: turbo_stream.replace('modal', partial: 'users/modal_form', locals: { user: @user })
     end
   end
 
