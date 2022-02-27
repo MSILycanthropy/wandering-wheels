@@ -1,0 +1,28 @@
+- user ||= nil
+
+= render ModalComponent.new do |modal|
+  = modal.body do
+    %h2.text-3xl.text-center.pb-8 Edit User
+    = form_for user do |f|
+      .form-control
+        = f.label :first_name, 'First Name'
+        = f.text_field :first_name
+      .form-control
+        = f.label :last_name, 'Last Name'
+        = f.text_field :last_name
+      .form-control
+        = f.label :email
+        = f.email_field :email, autofocus: true, autocomplete: 'email'
+      .form-control
+        :ruby
+          if user.avatar.nil?
+            avatar = Avatar.new(user:)
+          else
+            avatar = user.avatar
+          end
+        = f.fields_for :avatar, avatar do |a|
+          = a.label :url, 'Avatar URL'
+          = a.text_field :url
+      .flex.justify-center.mt-4
+        = f.submit 'Update', class: 'btn btn-primary w-32'
+

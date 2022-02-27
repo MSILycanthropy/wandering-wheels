@@ -1,0 +1,46 @@
+- car ||= nil
+
+= render ModalComponent.new do |modal|
+  = modal.body do
+    %h2.text-3xl.text-center.pb-8= yield :modal_title
+    = form_for car do |f|
+      .grid.grid-cols-2.gap-x-4.mb-4
+        .form-control
+          = f.label :make, 'Make'
+          = f.text_field :make
+        .form-control
+          = f.label :model, 'Model'
+          = f.text_field :model
+        .form-control
+          = f.label :year, 'Year'
+          = f.text_field :year
+        .form-control
+          = f.label :mileage, 'Mileage'
+          = f.text_field :mileage
+        .form-control
+          = f.label :car_type, 'Car Type'
+          = f.text_field :car_type
+        .form-control
+          = f.label :color, 'Color'
+          = f.text_field :color
+        .form-control
+          = f.label :license_plate, 'License Plate'
+          = f.text_field :license_plate
+        .form-control
+          = f.label :transmission, 'Transmission'
+          = f.text_field :transmission
+        .form-control
+          = f.label :doors, 'Doors'
+          = f.text_field :doors
+        .grid.items-end.justify-center
+          %label.label.cursor-pointer.justify-start.gap-x-4
+            = f.label :rented, 'Rented', class: 'cursor-pointer'
+            = f.check_box :rented
+      .actions.flex.justify-center
+        :ruby
+          submit_text = if car.new_record?
+                          'Create'
+                        else
+                          'Update'
+                        end
+        = f.submit submit_text, class: 'btn btn-primary w-32'

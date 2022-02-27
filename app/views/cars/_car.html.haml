@@ -1,0 +1,14 @@
+- car ||= nil
+
+%tr.hover.cursor-pointer{ id: dom_id(car), data: { action: 'click->cars#edit', path: edit_car_path(car) } }
+  %td= car.make
+  %td= car.model
+  %td= car.year
+  %td= car.mileage
+  %td= car.car_type
+  %td= car.color
+  %td= car.license_plate
+  %td= car.transmission
+  %td= car.doors
+  %td= car.rented? ? 'Yes' : 'No'
+  %td= time_tag car.updated_at, data: { local: 'time-ago'}

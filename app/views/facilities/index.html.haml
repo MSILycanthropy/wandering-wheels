@@ -1,0 +1,12 @@
+= turbo_frame_tag 'facilities-index' do
+  = render ButtonGroupComponent.new(link: true, wide: true, size: :large, classes: 'justify-center') do |c|
+    = c.button(text: 'Cars', active: @tab == :cars, href: facilities_path(tab: :cars))
+    = c.button(text: 'Trips', active: @tab == :trips, href: facilities_path(tab: :trips))
+    = c.button(text: 'Renters', active: @tab == :renters, href: facilities_path(tab: :renters))
+
+  - if @tab == :cars
+    = render partial: 'facilities/cars', locals: { facility: @facility }
+  - elsif @tab == :trips
+    = render partial: 'facilities/trips'
+  - elsif @tab == :renters
+    = render partial: 'facilities/renters'

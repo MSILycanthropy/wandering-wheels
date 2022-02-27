@@ -1,0 +1,143 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@800&display=swap");
+
+/* For the life of me I cannot figure out how to import
+   other files in here, so I'm just going to put all the
+   custom css here... lol
+  */
+html,
+body {
+  height: 100%;
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  position: grid;
+  grid-template-rows: 1fr auto;
+}
+
+main {
+  padding: 3rem 9rem;
+}
+
+header {
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  height: 5.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding: 0 4rem;
+}
+
+input[type="text"] {
+  @apply input input-bordered input-accent;
+}
+
+input[type="email"] {
+  @apply input input-bordered input-accent;
+}
+
+input[type="password"] {
+  @apply input input-bordered input-accent;
+}
+
+input[type="checkbox"] {
+  @apply checkbox checkbox-accent checkbox-sm;
+}
+
+label {
+  @apply label;
+}
+
+h1 {
+  @apply text-2xl;
+}
+
+.login {
+  width: 30rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.alert {
+  position: absolute;
+  bottom: 1rem;
+  right: 50%;
+  transform: translateX(50%);
+  max-width: 25rem;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  border-width: 1px;
+  width: fit-content;
+  font-family: "Raleway", sans-serif;
+  font-weight: 700;
+  padding: 0.375rem;
+}
+
+.modal {
+  opacity: 1;
+  visibility: unset;
+}
+
+.modal-box {
+  -webkit-transform: translate3d(0, -100%, 0);
+  transform: translate3d(0, -100%, 0);
+  transition: all 0.3s ease-in-out;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.modal.modal-open .modal-box {
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  transition: all 0.3s ease-in-out;
+  opacity: 1;
+  visibility: visible;
+}
+
+.table th:first-child {
+  position: relative;
+}
+
+@media screen and (max-width: 1024px) {
+  .btn-group .btn-wide {
+    width: 8rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  main {
+    padding: 3rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  main {
+    padding: 1rem;
+  }
+
+  h1 {
+    @apply text-lg;
+  }
+
+  .login {
+    width: 20rem !important;
+  }
+
+  .btn-group .btn-wide {
+    width: 7rem;
+  }
+}

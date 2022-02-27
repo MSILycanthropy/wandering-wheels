@@ -1,0 +1,18 @@
+%table.table.table-normal.table-zebra.mt-8.text-center
+  %thead
+    %tr
+      %th Make
+      %th Model
+      %th Year
+      %th Mileage
+      %th Car Type
+      %th Color
+      %th License Plate
+      %th Transmission
+      %th Doors
+      %th Rented
+      %th Updated
+  %tbody
+    = turbo_stream_from 'cars'
+    - cars.order(updated_at: :desc).each do |car|
+      = render car

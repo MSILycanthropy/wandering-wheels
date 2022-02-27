@@ -1,0 +1,90 @@
+AllCops:
+  NewCops: enable
+  Exclude:
+    - "node_modules/**/*"
+    - "vendor/**/*"
+    - ".git/**/*"
+    - "db/schema.rb"
+    - "db/data_schema.rb"
+
+# Cop supports --auto-correct.
+# Configuration parameters: EnforcedStyle.
+# SupportedStyles: when_needed, always, never
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+# Cop supports --auto-correct.
+Style/ExpandPathArguments:
+  Exclude:
+    - "bin/rails"
+    - "bin/rake"
+
+# Configuration parameters: AllowHeredoc, AllowURI, URISchemes, IgnoreCopDirectives, IgnoredPatterns.
+# URISchemes: http, https
+Layout/LineLength:
+  Max: 115
+
+Naming/VariableNumber:
+  Enabled: false
+
+Metrics/MethodLength:
+  Max: 50
+
+Metrics/BlockLength:
+  Max: 30
+  IgnoredMethods: ["describe", "context"]
+  Exclude:
+    - "config/routes/school_routes.rb"
+    - "config/routes/admin_routes.rb"
+
+Metrics/AbcSize:
+  Max: 65
+
+Metrics/ParameterLists:
+  Max: 20
+
+# Rubocop prefers alias old new instead of alias :old :new and that looks disgusting
+Style/Alias:
+  Enabled: false
+
+Style/MixinUsage:
+  Exclude:
+    - "bin/setup"
+    - "bin/update"
+
+Style/FormatStringToken:
+  EnforcedStyle: "template"
+
+Metrics/CyclomaticComplexity:
+  Max: 10
+
+Layout/TrailingEmptyLines:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+# this one actually had several offenses when turned on. would require some verification after changes are made
+Style/RedundantRegexpEscape:
+  Enabled: false
+
+Style/CaseLikeIf:
+  Enabled: false
+
+Style/StringConcatenation:
+  Enabled: false
+
+Lint/MissingSuper:
+  Enabled: false
+
+Style/SoleNestedConditional:
+  Enabled: false
+
+Style/KeywordParametersOrder:
+  Enabled: false
+
+Style/RedundantArgument:
+  Enabled: false
+
+Lint/EmptyFile:
+  Enabled: false
