@@ -133,6 +133,10 @@ h1 {
     @apply text-lg;
   }
 
+  header {
+    padding: 0 2rem;
+  }
+
   .login {
     width: 20rem !important;
   }
